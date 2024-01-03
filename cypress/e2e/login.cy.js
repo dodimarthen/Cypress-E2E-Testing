@@ -61,6 +61,7 @@ it('Login with invalid credential 3 (leaves both fields empty)', () =>{
     cy.wait(25000)
     cy.get('li.form-error__list-item').contains("Invalid email or password.")
     .should('exist');
+    cy.get('li.dropdown__menu-item')
 })  
 
 //LGN_005
@@ -78,4 +79,5 @@ it('Login with remember me option selected', () =>{
     cy.wait(25000)
     cy.get('a[href*="/collections"]')
     .should('exist');
+    cy.get('.dropdown__menu-item a[href="/users/sign_out"]').click();
 })  
