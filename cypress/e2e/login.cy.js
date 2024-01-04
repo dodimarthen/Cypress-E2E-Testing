@@ -61,7 +61,6 @@ it('Login with invalid credential 3 (leaves both fields empty)', () =>{
     cy.wait(25000)
     cy.get('li.form-error__list-item').contains("Invalid email or password.")
     .should('exist');
-    cy.get('li.dropdown__menu-item')
 })  
 
 //LGN_005
@@ -69,8 +68,6 @@ it('Login with remember me option selected', () =>{
 
     //visit the page
     cy.visit('https://courses.ultimateqa.com/users/sign_in');
-
-
     //fullfill sign-in form with valid credential
     cy.get('[name="user[email]"]').type("johndoealpaca20@gmail.com");
     cy.get('[name="user[password]"]').type("john14045");
