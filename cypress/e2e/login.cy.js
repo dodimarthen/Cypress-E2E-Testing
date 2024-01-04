@@ -79,5 +79,8 @@ it('Login with remember me option selected', () =>{
     cy.wait(25000)
     cy.get('a[href*="/collections"]')
     .should('exist');
-    cy.get('.dropdown__menu-item a[href="/users/sign_out"]').click();
-})  
+    cy.get('#header-dropdown-menu').contains('Sign Out').click({ force: true });
+    cy.get('.header__nav-item.header__nav-sign-in a').click();
+    cy.wait(15000)
+    cy.get('[name="user[email]"]').should('have.value', 'johndoealpaca20@gmail.com');
+})
