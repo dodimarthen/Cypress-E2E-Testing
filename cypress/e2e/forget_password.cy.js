@@ -48,3 +48,16 @@ it('Forget password button with invalid credentials', () =>{
     cy.get('.password-reset__heading')
     .should('be.visible')
 })
+
+//USRFRG_004
+it('Forget password but empty the field', () =>{
+    cy.visit('https://courses.ultimateqa.com/users/sign_in');
+    cy.get('.form__forgot-password')
+    .should('exist')
+    cy.get('.form__forgot-password').click();
+    cy.get('[name="user[email]"]').clear().type(' ');
+    cy.get('.button.button-primary').click();
+    cy.on('window:alert', (alertText) => {
+    expect(alertText).to.equal('Please fill out this field');
+    })
+})
