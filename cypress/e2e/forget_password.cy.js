@@ -31,3 +31,20 @@ it('Forget password button with valid credentials', () =>{
     .should('be.visible')
 
 })
+//USRFRG_003
+it('Forget password button with invalid credentials', () =>{
+
+    //visit the page
+    cy.visit('https://courses.ultimateqa.com/users/sign_in');
+    
+
+    //verify forget password button is visible and clickable
+    cy.get('a[href*="/users/password/new"]')
+    cy.get('.form__forgot-password')
+    .should('exist')
+    cy.get('.form__forgot-password').click();
+    cy.get('[name="user[email]"]').type('johndoe@yopmail.com')
+    cy.get('.button.button-primary').click();
+    cy.get('.password-reset__heading')
+    .should('be.visible')
+})
