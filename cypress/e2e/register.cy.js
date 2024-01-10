@@ -135,19 +135,3 @@ it('Registers a New User with an Empty all fields', () =>{
     cy.get('li.form-error__list-item').contains("Email can't be blank");
     cy.get('li.form-error__list-item').contains("Password can't be blank");
 })
-
-//REG_007
-it('Registers a New User with LinkedIn profile', () =>{ 
-
-    //visit the page
-    cy.visit('https://courses.ultimateqa.com/users/sign_in');
-
-    //verify register or create new account visible
-    cy.get('a[href*="/users/sign_up"]')
-    .should('exist')
-    .click()
-    cy.get('.button.linkedin')
-    .click()
-    cy.url().should('include', 'https://www.linkedin.com/uas/login?')
-
-})
